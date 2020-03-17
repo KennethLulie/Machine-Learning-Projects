@@ -1,0 +1,70 @@
+//// SQL Exploration of Coachella 2015 dataset by Kenneth Lulie on 11-14-2019
+
+
+////Review tweet sentiments
+SELECT COACHELLA_SENTIMENT , count(*) 
+FROM COACHELLA_2015
+GROUP BY COACHELLA_SENTIMENT
+
+
+
+////Review tweet locations with over 40 tweets
+SELECT tweet_location, count(*) FROM COACHELLA_2015
+GROUP BY TWEET_LOCATION
+HAVING count(*) > 40
+
+///Count number of tweets where the tweet location contains 'angeles or la'
+SELECT count(*) from COACHELLA_2015
+WHERE tweet_location like '%Angeles%' or tweet_location like '%LA%' 
+
+
+//How many tweets from each timezone?
+SELECT USER_TIMEZONE, COUNT(*) as Tweets
+FROM COACHELLA_2015
+GROUP BY user_timezone having count(*) > 30
+
+
+//What Sentiment are the 10 most retweeted tweets?
+SELECT coachella_sentiment, retweet_count, length(text) as TextLength, text
+FROM COACHELLA_2015
+ORDER BY retweet_count DESC
+LIMIT 10
+
+//What is the retweet count by sentiment?
+SELECT coachella_sentiment, sum(retweet_count) as TotalRetweets
+FROM COACHELLA_2015
+GROUP BY coachella_sentiment
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

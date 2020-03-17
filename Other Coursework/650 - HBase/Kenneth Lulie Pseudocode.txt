@@ -1,0 +1,72 @@
+#Import record, assume function returns as one long string.
+Import Record
+
+#Import dictionary of column names that map to schema such as “Author – AuthorID”
+Import ColumnDictionary
+
+#Scan for dates in the format and convert to MM-DD-YYYY format before using ‘,’ as delimeter.
+For each Date in Record, convert (MM-DD-YYYY)
+
+#Set delimiter to ‘,’
+Csv_reader = csv.reader(record, delimeter = ‘,’)
+
+#Read record with comma delimiter, assume each chunk is returned as a separate row.
+Read Record with CSV_reader
+
+#Create dictionary called Processed to store output
+Processed = [,]
+
+#For each row, find the semicolon and use the characters before it as the key, and the characters after it as the Value, accounting for the space. 
+For each row in csv_reader,
+	Separator = Find(“:”)
+	Key = row[0:Separator]
+	Value = row[(Seperator+1):]
+
+#if the key is in our list of columns, convert it to the intermediate stage of the column name. 
+	If Key is in ColumnDictionary
+		Key = ColumnDictionary(Value)
+	
+	Add [Key,Value] to Processed
+
+#Import a list of columns allowed to have multiple values such as number
+Import ColumnNest
+
+X = 1
+
+#Find the number of times a key shows up in the dictionary.  This will let us find potential errors and also let us create the right number of columns.
+Also, exit and log if we have more records than expected, such as two titles.
+
+#Also do a for loop to properly increment the number of column ids such as for author.
+For each Unique Key in Dictionary
+	X = Count of Key in Dictionary  
+	If X > 1 and Key not in ColumnNest
+		Log(Error, multiple values when unexpected)
+		exit()
+	Else For Each Key in Dictionary
+		If Key in Dictionary
+			KeyOutput = Key+I
+			I = I +1
+	
+#Set rowkey to the value of the title and the reprint edition
+Rowkey = Dictionary(Title) + Dictionary(ReprintEdition)
+
+#Import function to convert the rowkey and dictionary into HBase format
+Import HbaseConverter
+
+HBaseOutput = HbaseConvert(Rowkey,Dictionary)
+
+
+###convert HbaseOutput to a hbase ingestible format
+Import ReadHbase
+
+## Write new records to book table
+New Records = ReadHbase(HBaseOutput)
+
+Add(NewRecords,Mytable)
+
+
+
+
+		
+	
+	

@@ -1,0 +1,746 @@
+{
+  "name": "RavingRavenKL",
+  "intents": [
+    {
+      "intent": "statistics",
+      "examples": [
+        {
+          "text": "tell me statistics"
+        },
+        {
+          "text": "what is the offensive yardage for the ravens this season"
+        },
+        {
+          "text": "stats"
+        },
+        {
+          "text": "tell me stats"
+        },
+        {
+          "text": "season statistics"
+        },
+        {
+          "text": "what are the ravens statistics this season"
+        },
+        {
+          "text": "statistics"
+        }
+      ]
+    },
+    {
+      "intent": "players",
+      "examples": [
+        {
+          "text": "notable players"
+        },
+        {
+          "text": "players"
+        },
+        {
+          "text": "who are the players"
+        },
+        {
+          "text": "kicker"
+        },
+        {
+          "text": "I want to know about the players"
+        },
+        {
+          "text": "tell me about the players"
+        },
+        {
+          "text": "who are the ravens players"
+        },
+        {
+          "text": "who plays for the ravens"
+        }
+      ]
+    },
+    {
+      "intent": "where_to_watch",
+      "examples": [
+        {
+          "text": "where can I watch"
+        },
+        {
+          "text": "how to listen"
+        },
+        {
+          "text": "how to stream"
+        },
+        {
+          "text": "tv"
+        },
+        {
+          "text": "what tv show"
+        },
+        {
+          "text": "what station"
+        },
+        {
+          "text": "where can I find the game"
+        },
+        {
+          "text": "watch"
+        },
+        {
+          "text": "how to watch"
+        }
+      ]
+    },
+    {
+      "intent": "games",
+      "examples": [
+        {
+          "text": "did the ravens lose"
+        },
+        {
+          "text": "games"
+        },
+        {
+          "text": "Ravens Schedule"
+        },
+        {
+          "text": "I want to know the schedule"
+        },
+        {
+          "text": "tell me about the next game"
+        },
+        {
+          "text": "did the ravens win last week"
+        },
+        {
+          "text": "when is the next game"
+        },
+        {
+          "text": "next game"
+        },
+        {
+          "text": "last game"
+        }
+      ]
+    },
+    {
+      "intent": "goodbye",
+      "examples": [
+        {
+          "text": "see you later"
+        },
+        {
+          "text": "bye"
+        },
+        {
+          "text": "goodbye"
+        },
+        {
+          "text": "thanks"
+        },
+        {
+          "text": "exit"
+        },
+        {
+          "text": "hasta la vista"
+        },
+        {
+          "text": "bye-bye"
+        },
+        {
+          "text": "adios"
+        },
+        {
+          "text": "see you soon"
+        },
+        {
+          "text": "see you"
+        },
+        {
+          "text": "have a nice day"
+        },
+        {
+          "text": "I will be back"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "entity": "players",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Willie_Sneed",
+          "synonyms": [
+            "#83",
+            "Wide Receiver",
+            "WR",
+            "Sneed",
+            "Willie",
+            "Willie Sneed IV"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "mark_ingram",
+          "synonyms": [
+            "RB",
+            "Running Back",
+            "#22",
+            "Mark I.",
+            "Ingram",
+            "Mark",
+            "Mark Ingram"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "lamar_jackson",
+          "synonyms": [
+            "#8",
+            "Quarterback",
+            "QB",
+            "Jackson",
+            "Lamar",
+            "Lamar Jackson"
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "games",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "last game",
+          "synonyms": [
+            "I want the last game",
+            "tell me about the last game"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "next game",
+          "synonyms": [
+            "I want to know about the next game.",
+            "tell about the next game."
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "language": "en",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-09-20"
+    }
+  },
+  "skill_id": "b1e98dbe-3dce-440f-abf3-fffb4401b40e",
+  "dialog_nodes": [
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Can I have your name?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_3_1574960408130",
+      "event_name": "focus",
+      "dialog_node": "handler_8_1574960408137",
+      "previous_sibling": "handler_10_1574960408137"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_3_1574960408130",
+      "context": {
+        "name": "$name"
+      },
+      "conditions": "$name",
+      "event_name": "input",
+      "dialog_node": "handler_10_1574960408137"
+    },
+    {
+      "type": "slot",
+      "parent": "node_7_1574959755125",
+      "variable": "$name",
+      "dialog_node": "slot_10_1574960197449"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_10_1574960197449",
+      "event_name": "focus",
+      "dialog_node": "handler_5_1574960197459",
+      "previous_sibling": "handler_10_1574960197459"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_10_1574960197449",
+      "context": {
+        "name": "$name"
+      },
+      "conditions": "$name",
+      "event_name": "input",
+      "dialog_node": "handler_10_1574960197459"
+    },
+    {
+      "type": "standard",
+      "title": "LamarJackson",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "The ravens QB Lamar Jackson, is number 8 and has been setting records for his performance this season.  The ravens are lucky to have him!\n"
+              },
+              {
+                "text": "The QB is Lamar Jackson.  He is number 8 on his jersey but #1 in our hearts."
+              },
+              {
+                "text": "Lamar Jackson is the QB for the ravens.  He is player number 8 and has been setting records ever since he started for the Ravens. Go Ravens!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "source": "http://static.nfl.com/static/content/public/static/img/fantasy/transparent/200x200/JAC323395.png",
+            "response_type": "image"
+          }
+        ]
+      },
+      "parent": "node_5_1574961875521",
+      "conditions": "@players:lamar_jackson",
+      "dialog_node": "node_6_1574962352732",
+      "previous_sibling": "node_10_1574961930790"
+    },
+    {
+      "type": "standard",
+      "title": "MarkIngram",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "The ravens Running Back is Mark Ingram, Jr  number 22.  His birthday is December 21, and he is 29 years old.\n"
+              },
+              {
+                "text": "The ravens Running Back is Mark Ingram, Jr number 22.  His rushing is a key threat to the Ravens strategy!\n"
+              },
+              {
+                "text": "The ravens Running Back is Mark Ingram, Jr number 22.  His threat on the ground opens up the air for the ravens offensive game."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "source": "https://static.clubs.nfl.com/image/private/t_editorial_landscape_12_desktop/f_auto/ravens/oohxt5tcotshvjm7fwf2.jpg",
+            "response_type": "image"
+          }
+        ]
+      },
+      "parent": "node_5_1574961875521",
+      "conditions": "@players:mark_ingram",
+      "dialog_node": "node_5_1574962453958",
+      "previous_sibling": "node_6_1574962352732"
+    },
+    {
+      "type": "standard",
+      "title": "Willie",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "The ravens wide receiver is Willie Sneed IV.  He is number 83 and has been a favorite target of star quarter back Lamar Jackson.  Go Ravens!\n"
+              },
+              {
+                "text": "Our Wide Receiver is Willie Sneed! Number 83 is a key component of our offensive strategy.  Go Ravens! "
+              },
+              {
+                "text": "The WR most used for the ravens is Willie Sneed! He is number 83 and is getting record yards with Lamar Jackson as QB."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "source": "https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/17258.png&w=350&h=254",
+            "response_type": "image"
+          }
+        ]
+      },
+      "parent": "node_5_1574961875521",
+      "conditions": "@players:Willie_Sneed",
+      "dialog_node": "node_10_1574961930790"
+    },
+    {
+      "type": "standard",
+      "title": "GamesNextGame",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "The Ravens next game is on December 1, at 1pm.  The Ravens (9-2) will face off against the San Francisco 49ers (10-1).  Be sure to tune in!\n"
+              },
+              {
+                "text": "Our ravens next play on December 1st, at 1pm.  They are going up against another powerhouse, the 49ers which have a 10-1 record.  Put it in your calendar."
+              },
+              {
+                "text": "The next game is on December 1st, at 1pm vs the Rams.  Check it out!."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1574960645348",
+      "conditions": "@games:(next game)",
+      "dialog_node": "node_10_1574961704015",
+      "previous_sibling": "node_8_1574961460065"
+    },
+    {
+      "type": "standard",
+      "title": "GamesLastGame",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "The raven's last game was on November 25, 2019 against the Los Agles Rams.  The Ravens gave a powerful performance scoring 45 points to the Rams 6!\n"
+              },
+              {
+                "text": "Our Ravens last played on November 25, 2019 against LA.  They destroyed the rams 45-6."
+              },
+              {
+                "text": "The ravens had a blow out performance on November 25, 2019 against LA.  The score was 45-6!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1574960645348",
+      "conditions": "@games:(last game)",
+      "dialog_node": "node_8_1574961460065"
+    },
+    {
+      "type": "standard",
+      "title": "CentralNode",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hi $name, I can help you with info about recent Ravens games, notable Ravens Players, information on the ravens records this season, statistics on the ravens, and where to watch.\n"
+              },
+              {
+                "text": "Welcome $name, what can I help you with?\n"
+              },
+              {
+                "text": "Greetings $name, what would you like to know?\n"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "parent": "Welcome",
+      "context": {
+        "name": "<?input.text?>"
+      },
+      "conditions": "true",
+      "dialog_node": "node_7_1574959755125",
+      "previous_sibling": "slot_3_1574960408130"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "Welcome",
+      "variable": "$name",
+      "dialog_node": "slot_3_1574960408130"
+    },
+    {
+      "type": "standard",
+      "title": "WheretoWatch",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ravens can be watched on CBS, FOX, or locally on WBAL-TV.  You can also catch the games on streaming sites, or even come down to M&T Bank Stadium in Baltimore to watch it in person!\n"
+              },
+              {
+                "text": "Ravens can be watched on CBS, FOX, or locally on WBAL-TV.  Host a party with your friends!"
+              },
+              {
+                "text": "Ravens can be watched on CBS, FOX, or locally on WBAL-TV.  Consider buying tickets!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#where_to_watch",
+      "dialog_node": "node_1_1574963032109",
+      "previous_sibling": "node_8_1574963089763"
+    },
+    {
+      "type": "standard",
+      "title": "Statistics ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "The ravens are 9-2 this season with 4,766 total offensive yards.  Star quarterback Lamar Jackson has shocked the world with his record setting performance this season.  It might be time to start buying superbowl tickets! Go Ravens!\n"
+              },
+              {
+                "text": "The ravens are 9-2 this season with 4,766 total offensive yards.  Star quarterback Lamar Jackson has shocked the world with his record setting performance this season.  Its a cant miss season!"
+              },
+              {
+                "text": "The ravens are 9-2 this season with 4,766 total offensive yards.  Star quarterback Lamar Jackson has shocked the world with his record setting performance this season.  It might be time to start buying superbowl tickets! Superbowl incoming?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#statistics",
+      "dialog_node": "node_6_1574962917532",
+      "previous_sibling": "node_1_1574963032109"
+    },
+    {
+      "type": "standard",
+      "title": "Games",
+      "output": {
+        "generic": [
+          {
+            "title": "Last Game or Next Game",
+            "options": [
+              {
+                "label": "Last Game",
+                "value": {
+                  "input": {
+                    "text": "Last Game"
+                  }
+                }
+              },
+              {
+                "label": "Next Game",
+                "value": {
+                  "input": {
+                    "text": "Next Game"
+                  }
+                }
+              }
+            ],
+            "description": "Tell me which ravens game you want to know about.",
+            "response_type": "option"
+          },
+          {
+            "source": "https://static.clubs.nfl.com/image/private/t_editorial_landscape_12_desktop/f_auto/ravens/isuzoin9u5bjpykizqvv.jpg",
+            "response_type": "image"
+          }
+        ]
+      },
+      "conditions": "#games",
+      "dialog_node": "node_8_1574960645348",
+      "previous_sibling": "node_5_1574961875521"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sorry I didn't get that"
+              },
+              {
+                "text": "I didn't understand, my bad."
+              },
+              {
+                "text": "Unlike our team, sometimes I'm not on the ball."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "title": "I can help you with these items",
+            "options": [
+              {
+                "label": "Tell me about Players",
+                "value": {
+                  "input": {
+                    "text": "players"
+                  }
+                }
+              },
+              {
+                "label": "Tell me about recent games",
+                "value": {
+                  "input": {
+                    "text": "games"
+                  }
+                }
+              },
+              {
+                "label": "Tell me about where to watch",
+                "value": {
+                  "input": {
+                    "text": "watch"
+                  }
+                }
+              },
+              {
+                "label": "Tell me about Ravens stats",
+                "value": {
+                  "input": {
+                    "text": "stats"
+                  }
+                }
+              },
+              {
+                "label": "I want to leave",
+                "value": {
+                  "input": {
+                    "text": "goodbye"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_8_1574960645348",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Players",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Thank you for asking about notable Raven's players.  Who would you like to know about?\n"
+              },
+              {
+                "text": "Which notable Raven's player do you want to know more about?\n"
+              },
+              {
+                "text": "Who is the player you want to know about?\n"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#players",
+      "dialog_node": "node_5_1574961875521",
+      "previous_sibling": "node_6_1574962917532"
+    },
+    {
+      "type": "standard",
+      "title": "Goodbye",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Thank you for using the Raving Ravens app.  Goodbye!\n"
+              },
+              {
+                "text": "Have a good weekend, and good luck to our favorite team, the ravens!\n"
+              },
+              {
+                "text": "Thanks for checking on our favorite team, and go Ravens!\n"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "time": 5,
+            "typing": true,
+            "response_type": "pause"
+          }
+        ]
+      },
+      "conditions": "#goodbye",
+      "dialog_node": "node_8_1574963089763",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "RavingRavensWelcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello, Thank you for using Raven Raven's #1 Source for Ravens News and Facts! What is your name?"
+              },
+              {
+                "text": "Welcome to the Raving Ravens.  What is your name?\n"
+              },
+              {
+                "text": "Thanks for checking in with the Raving Ravens! What should I call you?\n"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "source": "https://i.pinimg.com/originals/98/0b/fa/980bfaea0485c02c1a789946e6a5829b.jpg",
+            "response_type": "image"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "workspace_id": "b1e98dbe-3dce-440f-abf3-fffb4401b40e",
+  "counterexamples": [],
+  "system_settings": {
+    "tooling": {
+      "store_generic_responses": true
+    },
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": ""
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "status": "Available"
+}
